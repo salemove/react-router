@@ -54,7 +54,8 @@ const Link = createReactClass({
     activeClassName: string,
     onlyActiveOnIndex: bool.isRequired,
     onClick: func,
-    target: string
+    target: string,
+    noHref: bool
   },
 
   getDefaultProps() {
@@ -91,7 +92,7 @@ const Link = createReactClass({
   },
 
   render() {
-    const { to, activeClassName, activeStyle, onlyActiveOnIndex, ...props } = this.props
+    const { to, activeClassName, activeStyle, onlyActiveOnIndex, noHref, ...props } = this.props
 
     // Ignore if rendered outside the context of router to simplify unit testing.
     const { router } = this.context
@@ -101,7 +102,8 @@ const Link = createReactClass({
       if (!to) { return <a {...props} /> }
 
       const toLocation = resolveToLocation(to, router)
-      props.href = router.createHref(toLocation)
+      if (!noHref)
+        props.href = router.createHref(toLocation)
 
       if (activeClassName || (activeStyle != null && !isEmptyObject(activeStyle))) {
         if (router.isActive(toLocation, onlyActiveOnIndex)) {
