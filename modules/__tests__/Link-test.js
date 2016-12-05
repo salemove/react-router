@@ -581,7 +581,7 @@ describe('A <Link>', () => {
       })
     })
 
-    it('should transition correctly on click', done => {
+    it('transitions to specified path on click', done => {
       const steps = [
         () => {
           click(node.querySelector('a'), { button: 0 })
