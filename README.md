@@ -1,3 +1,7 @@
+> ⚠️ **DEPRECATED** — this fork is no longer maintained and will be archived.
+> It has no remaining consumers at Glia (see BROW-2633). Use the upstream
+> package [`react-router`](https://github.com/remix-run/react-router) instead.
+
 # React Router [![Travis][build-badge]][build] [![npm package][npm-badge]][npm]
 
 <img src="/logo/vertical@2x.png" height="150"/>
